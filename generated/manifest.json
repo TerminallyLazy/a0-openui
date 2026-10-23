@@ -1,0 +1,89 @@
+{
+  "format_version": 1,
+  "library_id": "a0-openui@3",
+  "spec_digest": "80e8317cdb5f71c830aa4cd8c2b15e7d3363597119846837113d43b09a532a23",
+  "components": 103,
+  "legacy_spec_digest": "912831499155286ffb92432c31227d49fddd1dcaa0d56dd61f8e670e7bd47d32",
+  "compatible": [
+    "912831499155286ffb92432c31227d49fddd1dcaa0d56dd61f8e670e7bd47d32",
+    "d47d2f0867c161496ad9a049f16cc19b638ff41448b8e38ebe09cd3e2f906ae5"
+  ],
+  "libraries": {
+    "ui": {
+      "library_id": "a0-openui@3",
+      "spec_digest": "80e8317cdb5f71c830aa4cd8c2b15e7d3363597119846837113d43b09a532a23",
+      "components": 103,
+      "legacy_spec_digest": "912831499155286ffb92432c31227d49fddd1dcaa0d56dd61f8e670e7bd47d32",
+      "compatible": [
+        "912831499155286ffb92432c31227d49fddd1dcaa0d56dd61f8e670e7bd47d32",
+        "d47d2f0867c161496ad9a049f16cc19b638ff41448b8e38ebe09cd3e2f906ae5"
+      ]
+    },
+    "email": {
+      "library_id": "a0-openui-email@1",
+      "spec_digest": "6d9cfccbcdb02b6004db1f8dc4f511ff8221c71a17979218e53aea299c7b1f12",
+      "components": 44
+    }
+  },
+  "dependencies": {
+    "@openuidev/lang-core": "1.0.1",
+    "@openuidev/react-email": "0.4.0",
+    "@openuidev/react-lang": "1.0.1",
+    "@openuidev/react-ui": "0.18.1",
+    "@react-email/render": "2.1.1",
+    "chart.js": "4.6.1",
+    "dompurify": "3.4.17",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "zod": "4.6.7"
+  },
+  "overrides": {
+    "katex": "0.18.2"
+  },
+  "files": {
+    "generated/library.spec.json": "80e8317cdb5f71c830aa4cd8c2b15e7d3363597119846837113d43b09a532a23",
+    "generated/prompt-direct.txt": "f4b3a71ae09df6222309b13304b27d22c7f83a64124b4f3f3f5ac22fc0283bf8",
+    "generated/prompt-gateway.txt": "850fb8e835a3e6449ddec8e3e6745dab5633be2b5d22f52906abf6f255f65405",
+    "generated/tool-reference.txt": "a43559bf0e735c821c8b3444daadd82e40a174ea429e2a3a69e6ee7d0eaa7a4d",
+    "generated/email-library.spec.json": "6d9cfccbcdb02b6004db1f8dc4f511ff8221c71a17979218e53aea299c7b1f12",
+    "generated/email-prompt-direct.txt": "debfd658f78931155d1819c1921e852cb7add1f3ee193f2adc7cf22665684b1a",
+    "generated/email-prompt-gateway.txt": "98e9c4cba86d2df284f57f658f5ebd86b348aca07c6d2e62eeb0cad0cfb14560",
+    "generated/email-tool-reference.txt": "404d12fb0ac9c812a4c8668866f3676326ca18558b3e4de59b278aafc948444e",
+    "generated/components.md": "c5650e87d9a0a398dadc26cb94bcc223217dada6a4bfa729fa7d66ecdd54c2d6",
+    "generated/chartjs-license.txt": "41a84aa2caba645f966a18d9c2056b73e6d3a81d80bc0046bc0011a2634d4cce",
+    "generated/third-party-notices.txt": "58a4729b492f2c597d6e05d78037901f29c255d0e179e2e7b847f8f934d99f37",
+    "webui/renderer/assets/frame.js": "d1e27b1285722c915a2c08e525f9eaf34c42241935a99658a41fa776e935b0ca",
+    "webui/renderer/assets/frame.js.LEGAL.txt": "667c2809af59b7ae45aca6fb9f642907d6675e47474b7e583b5ee07f83552bbc",
+    "webui/renderer/assets/openui.css": "47bf5e5068650930020145fb26ae905ed12146541113cb9d4335e1e4e44c948a",
+    "webui/renderer/visual.html": "16d3e774071d8b2e91352fab47135525d63fec6acb1c40795c6f998376825861",
+    "webui/renderer/components.css": "1c187898a8897dbce536dc987e628fa9875091020980b87d4282ef3962cb41e8",
+    "webui/renderer/index.html": "19ddfc98064f19d24fb3290a81afb92a3c12af56eec04ce092a0a8ba4e5cfeef",
+    "plugin.yaml": "019a9f2f78d1c7de0583186df6f9a8326093ca3af3027fd86643a1c36aab001b",
+    "default_config.yaml": "4c421175f658827bb8a2dd0095f8d2b01d8d558623ee3d3fb510894df1f25bea",
+    "hooks.py": "a832f2a29547ecb1d35ce3382dd24ed0dbf35b704c8ffd94db9505844e8c2df7",
+    "helpers/config.py": "dea254016f135e0949df2a755e2af94298849471c6972634c5d53a3ab975fe10",
+    "helpers/artifacts.py": "19413912dda8358b9c67c2125d33c56e1fe25c6c44397c4e7b75fccf77397fcc",
+    "helpers/generation.py": "2c87f6dd29fd43ccaec919e1e094a8712d2c181edceede9fd1b0e6a3697d7bc2",
+    "helpers/current_answer.py": "f49c0bd00451b213655e5c287c2f4985a7dea6c63f3f8452d5db1d53d398dbae",
+    "tools/openui.py": "c7406c3dc6405addf715b5665045cdfd8308d5627e4fa460766fcc1f84f3ff60",
+    "tools/openui_mail.py": "a917a5e6539e59a7416d71835c1c51f2012cb3e7f93629b2338428e2c301c291",
+    "api/artifact.py": "e393c31bdbe05930ec67778807fbc3b39b8a36032957fefd84897e9c7e0923d2",
+    "api/state.py": "a80f31a3298ab75842a1e9ad3c13d75073f91906fab6d6e4c066c6d51fb2fed0",
+    "api/mail.py": "84c40beaad1c51eac93df72de2ef31e34064706bdf4d570c1b1cfccf954a50c8",
+    "helpers/mailbox.py": "ffc56f7ed33fec881654c96e075a5ff5cae13d784a1960dd3c5bb7e39b35fcce",
+    "helpers/mail_html.py": "0d708486c72aa138dbc35d5323827edf2ad6cadb0fa4840691f70a3689bf3440",
+    "helpers/delivery.py": "84582f734d4d7d988dd47a01999b4b5c3d0d2bbd116c045d67de1319f8f771ea",
+    "prompts/agent.system.tool.openui.md": "b83c0bd2c52de275e57c0c391d7bdfaae4209e5fd8bc63af657763bd7a2f833d",
+    "prompts/agent.system.tool.openui_mail.md": "54149f3b4b771006a17e9380335abad8025345335b6a9366f0b02d713b693088",
+    "extensions/python/system_prompt/_09_openui_config.py": "96cff5f8caae9a4475a3e1eb6cfb1846f4052629f0f72ac66b7d64e3db2489b5",
+    "extensions/python/response_stream_chunk/_05_openui_preview.py": "51c3df6c79db73b0c2b69bff1ea32da90fb03f46c24a88eb58e3f25bd859f68d",
+    "extensions/python/message_loop_end/_90_openui_preview.py": "1f56bdf4f5f09d2500bae97a1712c406b9fbeba02b72340d1e3aa68a7429edc5",
+    "extensions/webui/get_tool_message_handler/openui-handler.js": "505b25336fc661753645e7399cb4f49195376b041dd6db273ec8fefbb765dc34",
+    "webui/config.html": "20bcd08057292f91dd950f8e637b96e81901cc3b1a7a46be4362f219b5517ba7",
+    "webui/openui-host.js": "d17fd4190b7df17d53c730ee7fe442832d966663993cff125ba2779108078317",
+    "webui/email-workspace.js": "dfb1ddbe362eebd2251d85543e24ba1ef4d2596753777e89b01419255eeb3781",
+    "webui/email-workspace.css": "61b42dbb1760d2647d5792f4b68e3cf3caa6f27784b715bf436e5255c2a94829",
+    "thumbnail.png": "1f3f5a77ecaeba864106760b0a14ac9d52f0fcf19228723f9866ce68bf404e3c",
+    "webui/thumbnail.png": "1f3f5a77ecaeba864106760b0a14ac9d52f0fcf19228723f9866ce68bf404e3c"
+  }
+}

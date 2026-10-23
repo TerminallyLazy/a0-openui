@@ -1,0 +1,21 @@
+<html><head><title>OpenUI</title></head><body>
+<div x-data><template x-if="config"><div>
+  <div class="section-title">OpenUI</div>
+  <div class="section-description">Interactive answers using your existing Agent Zero model. No OpenUI account is required.</div>
+  <div class="field"><div class="field-label"><div class="field-title">Generation</div>
+    <div class="field-description">Use current answer is the default and adds no model call. Both Agent Zero options stream the UI; Generate separately makes an extra model call using the selected model. Live previews depend on provider support.</div></div>
+    <div class="field-control"><select x-model="config.generation_mode">
+      <option value="agent_program">Use current answer (streams, no extra call)</option>
+      <option value="agent_stream">Generate separately (streams, extra model call)</option>
+      <option value="gateway">OpenUI Gateway (optional)</option>
+    </select></div></div>
+  <div class="field" x-show="config.generation_mode === 'agent_stream'"><div class="field-label"><div class="field-title">Separate generation model</div></div>
+    <div class="field-control"><select x-model="config.stream_model"><option value="main">Main model</option><option value="utility">Utility model</option></select></div></div>
+  <div class="field" x-show="config.generation_mode === 'gateway'"><div class="field-label"><div class="field-title">Gateway model</div>
+    <div class="field-description">Requires a server-side THESYS_API_KEY configured by you. Service and model charges may apply. No automatic fallback to Gateway.</div></div>
+    <div class="field-control"><input x-model="config.gateway_model" placeholder="provider/model" autocomplete="off"></div></div>
+  <div class="field" x-show="config.generation_mode !== 'agent_program'"><div class="field-label"><div class="field-title">Maximum output tokens</div></div>
+    <div class="field-control"><input type="number" min="256" max="8192" x-model.number="config.max_output_tokens"></div></div>
+  <div class="field" x-show="config.generation_mode !== 'agent_program'"><div class="field-label"><div class="field-title">Timeout (seconds)</div></div>
+    <div class="field-control"><input type="number" min="10" max="300" x-model.number="config.timeout_seconds"></div></div>
+</div></template></div></body></html>

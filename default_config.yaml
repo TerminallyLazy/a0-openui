@@ -1,0 +1,5 @@
+generation_mode: agent_program
+stream_model: main
+gateway_model: ""
+max_output_tokens: 4096
+timeout_seconds: 120

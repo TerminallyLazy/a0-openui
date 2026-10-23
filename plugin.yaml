@@ -1,0 +1,8 @@
+name: openui
+title: OpenUI
+description: "OpenUI dashboards and rich email: browse connected mail, review drafts, send and export from Agent Zero chat. Uses your existing model; Gateway is optional."
+version: 0.2.3
+settings_sections: [agent]
+per_project_config: false
+per_agent_config: true
+always_enabled: false

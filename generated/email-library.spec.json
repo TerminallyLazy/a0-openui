@@ -1,0 +1,1649 @@
+{
+  "root": "EmailTemplate",
+  "components": {
+    "EmailTemplate": {
+      "signature": "EmailTemplate(subject: string, previewText?: string, children: (EmailHeading | EmailText | EmailButton | EmailImage | EmailDivider | EmailLink | EmailCodeBlock | EmailCodeInline | EmailMarkdown | EmailArticle | EmailProductCard | EmailFeatureGrid | EmailFeatureList | EmailNumberedSteps | EmailCheckoutTable | EmailPricingCard | EmailTestimonial | EmailSurveyRating | EmailStats | EmailImageGrid | EmailAvatarGroup | EmailAvatarWithText | EmailList | EmailCustomerReview | EmailBentoGrid | EmailSection | EmailColumns | EmailColumn | EmailHeaderSideNav | EmailHeaderCenteredNav | EmailHeaderSocial | EmailFooterCentered | EmailFooterTwoColumn)[])",
+      "description": "Root email template. Renders a live email preview with Copy HTML export. Always provide a subject line."
+    },
+    "EmailSection": {
+      "signature": "EmailSection(children: (EmailHeading | EmailText | EmailButton | EmailImage | EmailDivider | EmailLink | EmailCodeBlock | EmailCodeInline | EmailMarkdown | EmailArticle | EmailProductCard | EmailFeatureGrid | EmailFeatureList | EmailNumberedSteps | EmailCheckoutTable | EmailPricingCard | EmailTestimonial | EmailSurveyRating | EmailStats | EmailImageGrid | EmailAvatarGroup | EmailAvatarWithText | EmailList | EmailCustomerReview | EmailBentoGrid)[])",
+      "description": "Groups email content into a section. Use to organize header, body, and footer areas."
+    },
+    "EmailColumns": {
+      "signature": "EmailColumns(children: EmailColumn[])",
+      "description": "Multi-column row layout. Contains EmailColumn children."
+    },
+    "EmailColumn": {
+      "signature": "EmailColumn(children: (EmailHeading | EmailText | EmailButton | EmailImage | EmailDivider | EmailLink | EmailCodeBlock | EmailCodeInline | EmailMarkdown | EmailArticle | EmailProductCard | EmailFeatureGrid | EmailFeatureList | EmailNumberedSteps | EmailCheckoutTable | EmailPricingCard | EmailTestimonial | EmailSurveyRating | EmailStats | EmailImageGrid | EmailAvatarGroup | EmailAvatarWithText | EmailList | EmailCustomerReview | EmailBentoGrid)[])",
+      "description": "A single column within an EmailColumns row."
+    },
+    "EmailHeaderSideNav": {
+      "signature": "EmailHeaderSideNav(logoSrc: string, logoAlt: string, logoHeight?: number, links: EmailNavLink[])",
+      "description": "Header with logo on the left and navigation links on the right. Uses EmailNavLink items."
+    },
+    "EmailHeaderCenteredNav": {
+      "signature": "EmailHeaderCenteredNav(logoSrc: string, logoAlt: string, logoHeight?: number, links: EmailNavLink[])",
+      "description": "Header with logo centered on top and navigation links centered below. Uses EmailNavLink items."
+    },
+    "EmailHeaderSocial": {
+      "signature": "EmailHeaderSocial(logoSrc: string, logoAlt: string, logoHeight?: number, icons: EmailSocialIcon[])",
+      "description": "Header with logo on the left and social media icon links on the right. Uses EmailSocialIcon items."
+    },
+    "EmailNavLink": {
+      "signature": "EmailNavLink(text: string, href: string)",
+      "description": "Navigation link item for email headers."
+    },
+    "EmailSocialIcon": {
+      "signature": "EmailSocialIcon(src: string, alt: string, href: string)",
+      "description": "Social media icon link for email headers. src should be a square icon image URL."
+    },
+    "EmailFooterCentered": {
+      "signature": "EmailFooterCentered(logoSrc: string, logoAlt: string, companyName: string, tagline?: string, address: string, contact?: string, icons?: EmailSocialIcon[])",
+      "description": "Centered footer with logo, company name, tagline, social icons, address, and contact info. Uses EmailSocialIcon items."
+    },
+    "EmailFooterTwoColumn": {
+      "signature": "EmailFooterTwoColumn(logoSrc: string, logoAlt: string, companyName: string, tagline?: string, address: string, contact?: string, icons?: EmailSocialIcon[])",
+      "description": "Two-column footer with logo and company info on the left, social icons and address on the right. Uses EmailSocialIcon items."
+    },
+    "EmailHeading": {
+      "signature": "EmailHeading(text: string, level?: number)",
+      "description": "Email heading (h1-h6). Use level 1 for main title, 2 for section headers."
+    },
+    "EmailText": {
+      "signature": "EmailText(text: string)",
+      "description": "Email text paragraph for body content."
+    },
+    "EmailButton": {
+      "signature": "EmailButton(label: string, href: string, backgroundColor?: string)",
+      "description": "Email call-to-action button with link."
+    },
+    "EmailImage": {
+      "signature": "EmailImage(src: string, alt: string, width?: number)",
+      "description": "Email image. Use real, publicly accessible URLs."
+    },
+    "EmailDivider": {
+      "signature": "EmailDivider()",
+      "description": "Horizontal divider line to separate email sections."
+    },
+    "EmailLink": {
+      "signature": "EmailLink(text: string, href: string)",
+      "description": "Inline hyperlink in email content."
+    },
+    "EmailCodeBlock": {
+      "signature": "EmailCodeBlock(code: string, language?: string)",
+      "description": "Syntax-highlighted code block for displaying code snippets in emails."
+    },
+    "EmailCodeInline": {
+      "signature": "EmailCodeInline(code: string)",
+      "description": "Inline code snippet for embedding code within text."
+    },
+    "EmailMarkdown": {
+      "signature": "EmailMarkdown(content: string)",
+      "description": "Renders markdown content as styled email HTML. Supports headings, bold, italic, links, lists, and code."
+    },
+    "EmailArticle": {
+      "signature": "EmailArticle(imageSrc: string, imageAlt: string, category?: string, title: string, description: string, buttonLabel: string, buttonHref: string, buttonColor?: string)",
+      "description": "Article block with hero image, optional category label, title, description, and CTA button. Great for blog posts and newsletter articles."
+    },
+    "EmailProductCard": {
+      "signature": "EmailProductCard(imageSrc: string, imageAlt: string, category?: string, title: string, description: string, price: string, buttonLabel: string, buttonHref: string, buttonColor?: string)",
+      "description": "Product showcase card with hero image, optional category, title, description, price, and buy button."
+    },
+    "EmailFeatureItem": {
+      "signature": "EmailFeatureItem(iconSrc: string, iconAlt: string, title: string, description: string)",
+      "description": "Single feature item with icon, title, and description. Used inside EmailFeatureGrid or EmailFeatureList."
+    },
+    "EmailFeatureGrid": {
+      "signature": "EmailFeatureGrid(title: string, description: string, items: EmailFeatureItem[])",
+      "description": "2x2 feature grid with header title, description, and four feature items each with icon, title, and description."
+    },
+    "EmailFeatureList": {
+      "signature": "EmailFeatureList(title: string, description: string, items: EmailFeatureItem[])",
+      "description": "Vertical feature list with header title, description, and feature items separated by dividers. Each item has an icon, title, and description."
+    },
+    "EmailStepItem": {
+      "signature": "EmailStepItem(title: string, description: string)",
+      "description": "Single numbered step with title and description. Used inside EmailNumberedSteps."
+    },
+    "EmailNumberedSteps": {
+      "signature": "EmailNumberedSteps(title: string, description: string, steps: EmailStepItem[])",
+      "description": "Numbered steps list with header title, description, and sequential step items. Each step shows a numbered badge, title, and description."
+    },
+    "EmailCheckoutItem": {
+      "signature": "EmailCheckoutItem(imageSrc?: string, imageAlt?: string, name: string, quantity?: number, price: string)",
+      "description": "Single checkout/cart item with optional image, name, quantity, and price. Used inside EmailCheckoutTable."
+    },
+    "EmailCheckoutTable": {
+      "signature": "EmailCheckoutTable(title?: string, items: EmailCheckoutItem[], buttonLabel: string, buttonHref: string, buttonColor?: string)",
+      "description": "Checkout/cart table with product items (image, name, quantity, price) and a checkout button. Great for abandoned cart and order summary emails."
+    },
+    "EmailPricingFeature": {
+      "signature": "EmailPricingFeature(text: string)",
+      "description": "Single pricing feature line item. Used inside EmailPricingCard."
+    },
+    "EmailPricingCard": {
+      "signature": "EmailPricingCard(badge?: string, price: string, period?: string, description: string, features: EmailPricingFeature[], buttonLabel: string, buttonHref: string, buttonColor?: string, note?: string, subNote?: string)",
+      "description": "Pricing card with badge, price, description, feature list, CTA button, and optional note. Great for upgrade and promotional emails."
+    },
+    "EmailTestimonial": {
+      "signature": "EmailTestimonial(quote: string, avatarSrc: string, avatarAlt: string, name: string, role: string)",
+      "description": "Testimonial quote with avatar, name, and role. Centered layout for social proof in emails."
+    },
+    "EmailSurveyRating": {
+      "signature": "EmailSurveyRating(question: string, description?: string, buttonColor?: string)",
+      "description": "Rating survey section with a question and 1-5 numbered buttons. Great for feedback and NPS emails."
+    },
+    "EmailStatItem": {
+      "signature": "EmailStatItem(value: string, label: string)",
+      "description": "Single stat with a value and label. Used inside EmailStats."
+    },
+    "EmailStats": {
+      "signature": "EmailStats(items: EmailStatItem[])",
+      "description": "Horizontal stats row displaying key metrics. Each stat has a large value and a label below it."
+    },
+    "EmailImageGrid": {
+      "signature": "EmailImageGrid(title?: string, description?: string, images: EmailImage[])",
+      "description": "2x2 image grid layout with optional header title and description. Pass up to 4 EmailImage items. Great for product galleries and portfolios."
+    },
+    "EmailAvatar": {
+      "signature": "EmailAvatar(src: string, alt: string, size?: number, rounded?: \"full\" | \"md\")",
+      "description": "Avatar image component. Supports circular (rounded='full') or rounded-square (rounded='md') shapes, and configurable size."
+    },
+    "EmailAvatarGroup": {
+      "signature": "EmailAvatarGroup(avatars: EmailAvatar[])",
+      "description": "Overlapping stacked avatar group. Pass EmailAvatar items to display them in a horizontal row with negative offset overlap."
+    },
+    "EmailAvatarWithText": {
+      "signature": "EmailAvatarWithText(avatarSrc: string, avatarAlt: string, name: string, role: string, href?: string)",
+      "description": "Avatar with name and role text beside it. Optionally wraps in a link. Great for author attribution or team member display."
+    },
+    "EmailListItem": {
+      "signature": "EmailListItem(title: string, description: string)",
+      "description": "Data-only list item with title and description. Used as a child inside EmailList."
+    },
+    "EmailList": {
+      "signature": "EmailList(title?: string, items: EmailListItem[])",
+      "description": "Numbered list with circular number badges and item title + description. Pass EmailListItem children. Great for feature lists, how-it-works sections, and top-N lists."
+    },
+    "EmailCustomerReview": {
+      "signature": "EmailCustomerReview(title?: string, totalReviews: number, rating5: number, rating4: number, rating3: number, rating2: number, rating1: number, buttonLabel?: string, buttonHref?: string, buttonColor?: string)",
+      "description": "Customer review summary with star rating distribution bars showing percentages for each rating (1-5). Includes total review count and optional CTA button to write a review."
+    },
+    "EmailBentoItem": {
+      "signature": "EmailBentoItem(imageSrc: string, imageAlt: string, title: string, description: string)",
+      "description": "Data-only bento grid item with image, title, and description. Used as a child inside EmailBentoGrid."
+    },
+    "EmailBentoGrid": {
+      "signature": "EmailBentoGrid(heroTitle: string, heroDescription: string, heroLinkText?: string, heroLinkHref?: string, heroImageSrc: string, heroImageAlt: string, items: EmailBentoItem[])",
+      "description": "Bento grid layout with a dark hero section (title, description, link, image) on top and a row of product cards below. Pass EmailBentoItem children for the bottom row. Great for marketing and product showcase emails."
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "EmailTemplate": {
+        "$ref": "#/$defs/EmailTemplate"
+      },
+      "EmailSection": {
+        "$ref": "#/$defs/EmailSection"
+      },
+      "EmailColumns": {
+        "$ref": "#/$defs/EmailColumns"
+      },
+      "EmailColumn": {
+        "$ref": "#/$defs/EmailColumn"
+      },
+      "EmailHeaderSideNav": {
+        "$ref": "#/$defs/EmailHeaderSideNav"
+      },
+      "EmailHeaderCenteredNav": {
+        "$ref": "#/$defs/EmailHeaderCenteredNav"
+      },
+      "EmailHeaderSocial": {
+        "$ref": "#/$defs/EmailHeaderSocial"
+      },
+      "EmailNavLink": {
+        "$ref": "#/$defs/EmailNavLink"
+      },
+      "EmailSocialIcon": {
+        "$ref": "#/$defs/EmailSocialIcon"
+      },
+      "EmailFooterCentered": {
+        "$ref": "#/$defs/EmailFooterCentered"
+      },
+      "EmailFooterTwoColumn": {
+        "$ref": "#/$defs/EmailFooterTwoColumn"
+      },
+      "EmailHeading": {
+        "$ref": "#/$defs/EmailHeading"
+      },
+      "EmailText": {
+        "$ref": "#/$defs/EmailText"
+      },
+      "EmailButton": {
+        "$ref": "#/$defs/EmailButton"
+      },
+      "EmailImage": {
+        "$ref": "#/$defs/EmailImage"
+      },
+      "EmailDivider": {
+        "$ref": "#/$defs/EmailDivider"
+      },
+      "EmailLink": {
+        "$ref": "#/$defs/EmailLink"
+      },
+      "EmailCodeBlock": {
+        "$ref": "#/$defs/EmailCodeBlock"
+      },
+      "EmailCodeInline": {
+        "$ref": "#/$defs/EmailCodeInline"
+      },
+      "EmailMarkdown": {
+        "$ref": "#/$defs/EmailMarkdown"
+      },
+      "EmailArticle": {
+        "$ref": "#/$defs/EmailArticle"
+      },
+      "EmailProductCard": {
+        "$ref": "#/$defs/EmailProductCard"
+      },
+      "EmailFeatureItem": {
+        "$ref": "#/$defs/EmailFeatureItem"
+      },
+      "EmailFeatureGrid": {
+        "$ref": "#/$defs/EmailFeatureGrid"
+      },
+      "EmailFeatureList": {
+        "$ref": "#/$defs/EmailFeatureList"
+      },
+      "EmailStepItem": {
+        "$ref": "#/$defs/EmailStepItem"
+      },
+      "EmailNumberedSteps": {
+        "$ref": "#/$defs/EmailNumberedSteps"
+      },
+      "EmailCheckoutItem": {
+        "$ref": "#/$defs/EmailCheckoutItem"
+      },
+      "EmailCheckoutTable": {
+        "$ref": "#/$defs/EmailCheckoutTable"
+      },
+      "EmailPricingFeature": {
+        "$ref": "#/$defs/EmailPricingFeature"
+      },
+      "EmailPricingCard": {
+        "$ref": "#/$defs/EmailPricingCard"
+      },
+      "EmailTestimonial": {
+        "$ref": "#/$defs/EmailTestimonial"
+      },
+      "EmailSurveyRating": {
+        "$ref": "#/$defs/EmailSurveyRating"
+      },
+      "EmailStatItem": {
+        "$ref": "#/$defs/EmailStatItem"
+      },
+      "EmailStats": {
+        "$ref": "#/$defs/EmailStats"
+      },
+      "EmailImageGrid": {
+        "$ref": "#/$defs/EmailImageGrid"
+      },
+      "EmailAvatar": {
+        "$ref": "#/$defs/EmailAvatar"
+      },
+      "EmailAvatarGroup": {
+        "$ref": "#/$defs/EmailAvatarGroup"
+      },
+      "EmailAvatarWithText": {
+        "$ref": "#/$defs/EmailAvatarWithText"
+      },
+      "EmailListItem": {
+        "$ref": "#/$defs/EmailListItem"
+      },
+      "EmailList": {
+        "$ref": "#/$defs/EmailList"
+      },
+      "EmailCustomerReview": {
+        "$ref": "#/$defs/EmailCustomerReview"
+      },
+      "EmailBentoItem": {
+        "$ref": "#/$defs/EmailBentoItem"
+      },
+      "EmailBentoGrid": {
+        "$ref": "#/$defs/EmailBentoGrid"
+      }
+    },
+    "required": [
+      "EmailTemplate",
+      "EmailSection",
+      "EmailColumns",
+      "EmailColumn",
+      "EmailHeaderSideNav",
+      "EmailHeaderCenteredNav",
+      "EmailHeaderSocial",
+      "EmailNavLink",
+      "EmailSocialIcon",
+      "EmailFooterCentered",
+      "EmailFooterTwoColumn",
+      "EmailHeading",
+      "EmailText",
+      "EmailButton",
+      "EmailImage",
+      "EmailDivider",
+      "EmailLink",
+      "EmailCodeBlock",
+      "EmailCodeInline",
+      "EmailMarkdown",
+      "EmailArticle",
+      "EmailProductCard",
+      "EmailFeatureItem",
+      "EmailFeatureGrid",
+      "EmailFeatureList",
+      "EmailStepItem",
+      "EmailNumberedSteps",
+      "EmailCheckoutItem",
+      "EmailCheckoutTable",
+      "EmailPricingFeature",
+      "EmailPricingCard",
+      "EmailTestimonial",
+      "EmailSurveyRating",
+      "EmailStatItem",
+      "EmailStats",
+      "EmailImageGrid",
+      "EmailAvatar",
+      "EmailAvatarGroup",
+      "EmailAvatarWithText",
+      "EmailListItem",
+      "EmailList",
+      "EmailCustomerReview",
+      "EmailBentoItem",
+      "EmailBentoGrid"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "EmailTemplate": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "type": "string"
+          },
+          "previewText": {
+            "type": "string"
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/EmailHeading"
+                },
+                {
+                  "$ref": "#/$defs/EmailText"
+                },
+                {
+                  "$ref": "#/$defs/EmailButton"
+                },
+                {
+                  "$ref": "#/$defs/EmailImage"
+                },
+                {
+                  "$ref": "#/$defs/EmailDivider"
+                },
+                {
+                  "$ref": "#/$defs/EmailLink"
+                },
+                {
+                  "$ref": "#/$defs/EmailCodeBlock"
+                },
+                {
+                  "$ref": "#/$defs/EmailCodeInline"
+                },
+                {
+                  "$ref": "#/$defs/EmailMarkdown"
+                },
+                {
+                  "$ref": "#/$defs/EmailArticle"
+                },
+                {
+                  "$ref": "#/$defs/EmailProductCard"
+                },
+                {
+                  "$ref": "#/$defs/EmailFeatureGrid"
+                },
+                {
+                  "$ref": "#/$defs/EmailFeatureList"
+                },
+                {
+                  "$ref": "#/$defs/EmailNumberedSteps"
+                },
+                {
+                  "$ref": "#/$defs/EmailCheckoutTable"
+                },
+                {
+                  "$ref": "#/$defs/EmailPricingCard"
+                },
+                {
+                  "$ref": "#/$defs/EmailTestimonial"
+                },
+                {
+                  "$ref": "#/$defs/EmailSurveyRating"
+                },
+                {
+                  "$ref": "#/$defs/EmailStats"
+                },
+                {
+                  "$ref": "#/$defs/EmailImageGrid"
+                },
+                {
+                  "$ref": "#/$defs/EmailAvatarGroup"
+                },
+                {
+                  "$ref": "#/$defs/EmailAvatarWithText"
+                },
+                {
+                  "$ref": "#/$defs/EmailList"
+                },
+                {
+                  "$ref": "#/$defs/EmailCustomerReview"
+                },
+                {
+                  "$ref": "#/$defs/EmailBentoGrid"
+                },
+                {
+                  "$ref": "#/$defs/EmailSection"
+                },
+                {
+                  "$ref": "#/$defs/EmailColumns"
+                },
+                {
+                  "$ref": "#/$defs/EmailColumn"
+                },
+                {
+                  "$ref": "#/$defs/EmailHeaderSideNav"
+                },
+                {
+                  "$ref": "#/$defs/EmailHeaderCenteredNav"
+                },
+                {
+                  "$ref": "#/$defs/EmailHeaderSocial"
+                },
+                {
+                  "$ref": "#/$defs/EmailFooterCentered"
+                },
+                {
+                  "$ref": "#/$defs/EmailFooterTwoColumn"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "subject",
+          "children"
+        ],
+        "additionalProperties": false,
+        "description": "Root email template. Renders a live email preview with Copy HTML export. Always provide a subject line."
+      },
+      "EmailHeading": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "level": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "additionalProperties": false,
+        "description": "Email heading (h1-h6). Use level 1 for main title, 2 for section headers."
+      },
+      "EmailText": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "additionalProperties": false,
+        "description": "Email text paragraph for body content."
+      },
+      "EmailButton": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          },
+          "backgroundColor": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "href"
+        ],
+        "additionalProperties": false,
+        "description": "Email call-to-action button with link."
+      },
+      "EmailImage": {
+        "type": "object",
+        "properties": {
+          "src": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string"
+          },
+          "width": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "src",
+          "alt"
+        ],
+        "additionalProperties": false,
+        "description": "Email image. Use real, publicly accessible URLs."
+      },
+      "EmailDivider": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false,
+        "description": "Horizontal divider line to separate email sections."
+      },
+      "EmailLink": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text",
+          "href"
+        ],
+        "additionalProperties": false,
+        "description": "Inline hyperlink in email content."
+      },
+      "EmailCodeBlock": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ],
+        "additionalProperties": false,
+        "description": "Syntax-highlighted code block for displaying code snippets in emails."
+      },
+      "EmailCodeInline": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ],
+        "additionalProperties": false,
+        "description": "Inline code snippet for embedding code within text."
+      },
+      "EmailMarkdown": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "content"
+        ],
+        "additionalProperties": false,
+        "description": "Renders markdown content as styled email HTML. Supports headings, bold, italic, links, lists, and code."
+      },
+      "EmailArticle": {
+        "type": "object",
+        "properties": {
+          "imageSrc": {
+            "type": "string"
+          },
+          "imageAlt": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "buttonLabel": {
+            "type": "string"
+          },
+          "buttonHref": {
+            "type": "string"
+          },
+          "buttonColor": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "imageSrc",
+          "imageAlt",
+          "title",
+          "description",
+          "buttonLabel",
+          "buttonHref"
+        ],
+        "additionalProperties": false,
+        "description": "Article block with hero image, optional category label, title, description, and CTA button. Great for blog posts and newsletter articles."
+      },
+      "EmailProductCard": {
+        "type": "object",
+        "properties": {
+          "imageSrc": {
+            "type": "string"
+          },
+          "imageAlt": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          },
+          "buttonLabel": {
+            "type": "string"
+          },
+          "buttonHref": {
+            "type": "string"
+          },
+          "buttonColor": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "imageSrc",
+          "imageAlt",
+          "title",
+          "description",
+          "price",
+          "buttonLabel",
+          "buttonHref"
+        ],
+        "additionalProperties": false,
+        "description": "Product showcase card with hero image, optional category, title, description, price, and buy button."
+      },
+      "EmailFeatureGrid": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailFeatureItem"
+            }
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "items"
+        ],
+        "additionalProperties": false,
+        "description": "2x2 feature grid with header title, description, and four feature items each with icon, title, and description."
+      },
+      "EmailFeatureItem": {
+        "type": "object",
+        "properties": {
+          "iconSrc": {
+            "type": "string"
+          },
+          "iconAlt": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "iconSrc",
+          "iconAlt",
+          "title",
+          "description"
+        ],
+        "additionalProperties": false,
+        "description": "Single feature item with icon, title, and description. Used inside EmailFeatureGrid or EmailFeatureList."
+      },
+      "EmailFeatureList": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailFeatureItem"
+            }
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "items"
+        ],
+        "additionalProperties": false,
+        "description": "Vertical feature list with header title, description, and feature items separated by dividers. Each item has an icon, title, and description."
+      },
+      "EmailNumberedSteps": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailStepItem"
+            }
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "steps"
+        ],
+        "additionalProperties": false,
+        "description": "Numbered steps list with header title, description, and sequential step items. Each step shows a numbered badge, title, and description."
+      },
+      "EmailStepItem": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "description"
+        ],
+        "additionalProperties": false,
+        "description": "Single numbered step with title and description. Used inside EmailNumberedSteps."
+      },
+      "EmailCheckoutTable": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailCheckoutItem"
+            }
+          },
+          "buttonLabel": {
+            "type": "string"
+          },
+          "buttonHref": {
+            "type": "string"
+          },
+          "buttonColor": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "items",
+          "buttonLabel",
+          "buttonHref"
+        ],
+        "additionalProperties": false,
+        "description": "Checkout/cart table with product items (image, name, quantity, price) and a checkout button. Great for abandoned cart and order summary emails."
+      },
+      "EmailCheckoutItem": {
+        "type": "object",
+        "properties": {
+          "imageSrc": {
+            "type": "string"
+          },
+          "imageAlt": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "price": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "price"
+        ],
+        "additionalProperties": false,
+        "description": "Single checkout/cart item with optional image, name, quantity, and price. Used inside EmailCheckoutTable."
+      },
+      "EmailPricingCard": {
+        "type": "object",
+        "properties": {
+          "badge": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          },
+          "period": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailPricingFeature"
+            }
+          },
+          "buttonLabel": {
+            "type": "string"
+          },
+          "buttonHref": {
+            "type": "string"
+          },
+          "buttonColor": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "subNote": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "price",
+          "description",
+          "features",
+          "buttonLabel",
+          "buttonHref"
+        ],
+        "additionalProperties": false,
+        "description": "Pricing card with badge, price, description, feature list, CTA button, and optional note. Great for upgrade and promotional emails."
+      },
+      "EmailPricingFeature": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "additionalProperties": false,
+        "description": "Single pricing feature line item. Used inside EmailPricingCard."
+      },
+      "EmailTestimonial": {
+        "type": "object",
+        "properties": {
+          "quote": {
+            "type": "string"
+          },
+          "avatarSrc": {
+            "type": "string"
+          },
+          "avatarAlt": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "quote",
+          "avatarSrc",
+          "avatarAlt",
+          "name",
+          "role"
+        ],
+        "additionalProperties": false,
+        "description": "Testimonial quote with avatar, name, and role. Centered layout for social proof in emails."
+      },
+      "EmailSurveyRating": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "buttonColor": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "question"
+        ],
+        "additionalProperties": false,
+        "description": "Rating survey section with a question and 1-5 numbered buttons. Great for feedback and NPS emails."
+      },
+      "EmailStats": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailStatItem"
+            }
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "additionalProperties": false,
+        "description": "Horizontal stats row displaying key metrics. Each stat has a large value and a label below it."
+      },
+      "EmailStatItem": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "value",
+          "label"
+        ],
+        "additionalProperties": false,
+        "description": "Single stat with a value and label. Used inside EmailStats."
+      },
+      "EmailImageGrid": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailImage"
+            }
+          }
+        },
+        "required": [
+          "images"
+        ],
+        "additionalProperties": false,
+        "description": "2x2 image grid layout with optional header title and description. Pass up to 4 EmailImage items. Great for product galleries and portfolios."
+      },
+      "EmailAvatarGroup": {
+        "type": "object",
+        "properties": {
+          "avatars": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailAvatar"
+            }
+          }
+        },
+        "required": [
+          "avatars"
+        ],
+        "additionalProperties": false,
+        "description": "Overlapping stacked avatar group. Pass EmailAvatar items to display them in a horizontal row with negative offset overlap."
+      },
+      "EmailAvatar": {
+        "type": "object",
+        "properties": {
+          "src": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string"
+          },
+          "size": {
+            "type": "number"
+          },
+          "rounded": {
+            "type": "string",
+            "enum": [
+              "full",
+              "md"
+            ]
+          }
+        },
+        "required": [
+          "src",
+          "alt"
+        ],
+        "additionalProperties": false,
+        "description": "Avatar image component. Supports circular (rounded='full') or rounded-square (rounded='md') shapes, and configurable size."
+      },
+      "EmailAvatarWithText": {
+        "type": "object",
+        "properties": {
+          "avatarSrc": {
+            "type": "string"
+          },
+          "avatarAlt": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "avatarSrc",
+          "avatarAlt",
+          "name",
+          "role"
+        ],
+        "additionalProperties": false,
+        "description": "Avatar with name and role text beside it. Optionally wraps in a link. Great for author attribution or team member display."
+      },
+      "EmailList": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailListItem"
+            }
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "additionalProperties": false,
+        "description": "Numbered list with circular number badges and item title + description. Pass EmailListItem children. Great for feature lists, how-it-works sections, and top-N lists."
+      },
+      "EmailListItem": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "description"
+        ],
+        "additionalProperties": false,
+        "description": "Data-only list item with title and description. Used as a child inside EmailList."
+      },
+      "EmailCustomerReview": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "totalReviews": {
+            "type": "number"
+          },
+          "rating5": {
+            "type": "number"
+          },
+          "rating4": {
+            "type": "number"
+          },
+          "rating3": {
+            "type": "number"
+          },
+          "rating2": {
+            "type": "number"
+          },
+          "rating1": {
+            "type": "number"
+          },
+          "buttonLabel": {
+            "type": "string"
+          },
+          "buttonHref": {
+            "type": "string"
+          },
+          "buttonColor": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "totalReviews",
+          "rating5",
+          "rating4",
+          "rating3",
+          "rating2",
+          "rating1"
+        ],
+        "additionalProperties": false,
+        "description": "Customer review summary with star rating distribution bars showing percentages for each rating (1-5). Includes total review count and optional CTA button to write a review."
+      },
+      "EmailBentoGrid": {
+        "type": "object",
+        "properties": {
+          "heroTitle": {
+            "type": "string"
+          },
+          "heroDescription": {
+            "type": "string"
+          },
+          "heroLinkText": {
+            "type": "string"
+          },
+          "heroLinkHref": {
+            "type": "string"
+          },
+          "heroImageSrc": {
+            "type": "string"
+          },
+          "heroImageAlt": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailBentoItem"
+            }
+          }
+        },
+        "required": [
+          "heroTitle",
+          "heroDescription",
+          "heroImageSrc",
+          "heroImageAlt",
+          "items"
+        ],
+        "additionalProperties": false,
+        "description": "Bento grid layout with a dark hero section (title, description, link, image) on top and a row of product cards below. Pass EmailBentoItem children for the bottom row. Great for marketing and product showcase emails."
+      },
+      "EmailBentoItem": {
+        "type": "object",
+        "properties": {
+          "imageSrc": {
+            "type": "string"
+          },
+          "imageAlt": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "imageSrc",
+          "imageAlt",
+          "title",
+          "description"
+        ],
+        "additionalProperties": false,
+        "description": "Data-only bento grid item with image, title, and description. Used as a child inside EmailBentoGrid."
+      },
+      "EmailSection": {
+        "type": "object",
+        "properties": {
+          "children": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/EmailHeading"
+                },
+                {
+                  "$ref": "#/$defs/EmailText"
+                },
+                {
+                  "$ref": "#/$defs/EmailButton"
+                },
+                {
+                  "$ref": "#/$defs/EmailImage"
+                },
+                {
+                  "$ref": "#/$defs/EmailDivider"
+                },
+                {
+                  "$ref": "#/$defs/EmailLink"
+                },
+                {
+                  "$ref": "#/$defs/EmailCodeBlock"
+                },
+                {
+                  "$ref": "#/$defs/EmailCodeInline"
+                },
+                {
+                  "$ref": "#/$defs/EmailMarkdown"
+                },
+                {
+                  "$ref": "#/$defs/EmailArticle"
+                },
+                {
+                  "$ref": "#/$defs/EmailProductCard"
+                },
+                {
+                  "$ref": "#/$defs/EmailFeatureGrid"
+                },
+                {
+                  "$ref": "#/$defs/EmailFeatureList"
+                },
+                {
+                  "$ref": "#/$defs/EmailNumberedSteps"
+                },
+                {
+                  "$ref": "#/$defs/EmailCheckoutTable"
+                },
+                {
+                  "$ref": "#/$defs/EmailPricingCard"
+                },
+                {
+                  "$ref": "#/$defs/EmailTestimonial"
+                },
+                {
+                  "$ref": "#/$defs/EmailSurveyRating"
+                },
+                {
+                  "$ref": "#/$defs/EmailStats"
+                },
+                {
+                  "$ref": "#/$defs/EmailImageGrid"
+                },
+                {
+                  "$ref": "#/$defs/EmailAvatarGroup"
+                },
+                {
+                  "$ref": "#/$defs/EmailAvatarWithText"
+                },
+                {
+                  "$ref": "#/$defs/EmailList"
+                },
+                {
+                  "$ref": "#/$defs/EmailCustomerReview"
+                },
+                {
+                  "$ref": "#/$defs/EmailBentoGrid"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "children"
+        ],
+        "additionalProperties": false,
+        "description": "Groups email content into a section. Use to organize header, body, and footer areas."
+      },
+      "EmailColumns": {
+        "type": "object",
+        "properties": {
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailColumn"
+            }
+          }
+        },
+        "required": [
+          "children"
+        ],
+        "additionalProperties": false,
+        "description": "Multi-column row layout. Contains EmailColumn children."
+      },
+      "EmailColumn": {
+        "type": "object",
+        "properties": {
+          "children": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/EmailHeading"
+                },
+                {
+                  "$ref": "#/$defs/EmailText"
+                },
+                {
+                  "$ref": "#/$defs/EmailButton"
+                },
+                {
+                  "$ref": "#/$defs/EmailImage"
+                },
+                {
+                  "$ref": "#/$defs/EmailDivider"
+                },
+                {
+                  "$ref": "#/$defs/EmailLink"
+                },
+                {
+                  "$ref": "#/$defs/EmailCodeBlock"
+                },
+                {
+                  "$ref": "#/$defs/EmailCodeInline"
+                },
+                {
+                  "$ref": "#/$defs/EmailMarkdown"
+                },
+                {
+                  "$ref": "#/$defs/EmailArticle"
+                },
+                {
+                  "$ref": "#/$defs/EmailProductCard"
+                },
+                {
+                  "$ref": "#/$defs/EmailFeatureGrid"
+                },
+                {
+                  "$ref": "#/$defs/EmailFeatureList"
+                },
+                {
+                  "$ref": "#/$defs/EmailNumberedSteps"
+                },
+                {
+                  "$ref": "#/$defs/EmailCheckoutTable"
+                },
+                {
+                  "$ref": "#/$defs/EmailPricingCard"
+                },
+                {
+                  "$ref": "#/$defs/EmailTestimonial"
+                },
+                {
+                  "$ref": "#/$defs/EmailSurveyRating"
+                },
+                {
+                  "$ref": "#/$defs/EmailStats"
+                },
+                {
+                  "$ref": "#/$defs/EmailImageGrid"
+                },
+                {
+                  "$ref": "#/$defs/EmailAvatarGroup"
+                },
+                {
+                  "$ref": "#/$defs/EmailAvatarWithText"
+                },
+                {
+                  "$ref": "#/$defs/EmailList"
+                },
+                {
+                  "$ref": "#/$defs/EmailCustomerReview"
+                },
+                {
+                  "$ref": "#/$defs/EmailBentoGrid"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "children"
+        ],
+        "additionalProperties": false,
+        "description": "A single column within an EmailColumns row."
+      },
+      "EmailHeaderSideNav": {
+        "type": "object",
+        "properties": {
+          "logoSrc": {
+            "type": "string"
+          },
+          "logoAlt": {
+            "type": "string"
+          },
+          "logoHeight": {
+            "type": "number"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailNavLink"
+            }
+          }
+        },
+        "required": [
+          "logoSrc",
+          "logoAlt",
+          "links"
+        ],
+        "additionalProperties": false,
+        "description": "Header with logo on the left and navigation links on the right. Uses EmailNavLink items."
+      },
+      "EmailNavLink": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text",
+          "href"
+        ],
+        "additionalProperties": false,
+        "description": "Navigation link item for email headers."
+      },
+      "EmailHeaderCenteredNav": {
+        "type": "object",
+        "properties": {
+          "logoSrc": {
+            "type": "string"
+          },
+          "logoAlt": {
+            "type": "string"
+          },
+          "logoHeight": {
+            "type": "number"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailNavLink"
+            }
+          }
+        },
+        "required": [
+          "logoSrc",
+          "logoAlt",
+          "links"
+        ],
+        "additionalProperties": false,
+        "description": "Header with logo centered on top and navigation links centered below. Uses EmailNavLink items."
+      },
+      "EmailHeaderSocial": {
+        "type": "object",
+        "properties": {
+          "logoSrc": {
+            "type": "string"
+          },
+          "logoAlt": {
+            "type": "string"
+          },
+          "logoHeight": {
+            "type": "number"
+          },
+          "icons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailSocialIcon"
+            }
+          }
+        },
+        "required": [
+          "logoSrc",
+          "logoAlt",
+          "icons"
+        ],
+        "additionalProperties": false,
+        "description": "Header with logo on the left and social media icon links on the right. Uses EmailSocialIcon items."
+      },
+      "EmailSocialIcon": {
+        "type": "object",
+        "properties": {
+          "src": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "src",
+          "alt",
+          "href"
+        ],
+        "additionalProperties": false,
+        "description": "Social media icon link for email headers. src should be a square icon image URL."
+      },
+      "EmailFooterCentered": {
+        "type": "object",
+        "properties": {
+          "logoSrc": {
+            "type": "string"
+          },
+          "logoAlt": {
+            "type": "string"
+          },
+          "companyName": {
+            "type": "string"
+          },
+          "tagline": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "contact": {
+            "type": "string"
+          },
+          "icons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailSocialIcon"
+            }
+          }
+        },
+        "required": [
+          "logoSrc",
+          "logoAlt",
+          "companyName",
+          "address"
+        ],
+        "additionalProperties": false,
+        "description": "Centered footer with logo, company name, tagline, social icons, address, and contact info. Uses EmailSocialIcon items."
+      },
+      "EmailFooterTwoColumn": {
+        "type": "object",
+        "properties": {
+          "logoSrc": {
+            "type": "string"
+          },
+          "logoAlt": {
+            "type": "string"
+          },
+          "companyName": {
+            "type": "string"
+          },
+          "tagline": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "contact": {
+            "type": "string"
+          },
+          "icons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailSocialIcon"
+            }
+          }
+        },
+        "required": [
+          "logoSrc",
+          "logoAlt",
+          "companyName",
+          "address"
+        ],
+        "additionalProperties": false,
+        "description": "Two-column footer with logo and company info on the left, social icons and address on the right. Uses EmailSocialIcon items."
+      }
+    }
+  },
+  "id": "a0-openui-email@1"
+}

@@ -1,0 +1,138 @@
+The following grammar applies only inside the program string argument.
+Write one name = expression statement per line. root = EmailTemplate(...) comes first.
+Arguments are positional in signature order; arrays contain children; null skips optional middle arguments.
+References may precede definitions. Strings are quoted.
+EmailTemplate supplies the subject and previewText. This is a draft; export never sends email.
+Query, Mutation, @Run and @OpenUrl are unavailable. For UI image search results use ImageCard/ImageCarousel/ImageGrid with actual public HTTPS URLs and source links. Email preview remote images remain blocked.
+
+EmailTemplate(subject: string, previewText?: string, children: (EmailHeading | EmailText | EmailButton | EmailImage | EmailDivider | EmailLink | EmailCodeBlock | EmailCodeInline | EmailMarkdown | EmailArticle | EmailProductCard | EmailFeatureGrid | EmailFeatureList | EmailNumberedSteps | EmailCheckoutTable | EmailPricingCard | EmailTestimonial | EmailSurveyRating | EmailStats | EmailImageGrid | EmailAvatarGroup | EmailAvatarWithText | EmailList | EmailCustomerReview | EmailBentoGrid | EmailSection | EmailColumns | EmailColumn | EmailHeaderSideNav | EmailHeaderCenteredNav | EmailHeaderSocial | EmailFooterCentered | EmailFooterTwoColumn)[])
+Root email template. Renders a live email preview with Copy HTML export. Always provide a subject line.
+
+EmailSection(children: (EmailHeading | EmailText | EmailButton | EmailImage | EmailDivider | EmailLink | EmailCodeBlock | EmailCodeInline | EmailMarkdown | EmailArticle | EmailProductCard | EmailFeatureGrid | EmailFeatureList | EmailNumberedSteps | EmailCheckoutTable | EmailPricingCard | EmailTestimonial | EmailSurveyRating | EmailStats | EmailImageGrid | EmailAvatarGroup | EmailAvatarWithText | EmailList | EmailCustomerReview | EmailBentoGrid)[])
+Groups email content into a section. Use to organize header, body, and footer areas.
+
+EmailColumns(children: EmailColumn[])
+Multi-column row layout. Contains EmailColumn children.
+
+EmailColumn(children: (EmailHeading | EmailText | EmailButton | EmailImage | EmailDivider | EmailLink | EmailCodeBlock | EmailCodeInline | EmailMarkdown | EmailArticle | EmailProductCard | EmailFeatureGrid | EmailFeatureList | EmailNumberedSteps | EmailCheckoutTable | EmailPricingCard | EmailTestimonial | EmailSurveyRating | EmailStats | EmailImageGrid | EmailAvatarGroup | EmailAvatarWithText | EmailList | EmailCustomerReview | EmailBentoGrid)[])
+A single column within an EmailColumns row.
+
+EmailHeaderSideNav(logoSrc: string, logoAlt: string, logoHeight?: number, links: EmailNavLink[])
+Header with logo on the left and navigation links on the right. Uses EmailNavLink items.
+
+EmailHeaderCenteredNav(logoSrc: string, logoAlt: string, logoHeight?: number, links: EmailNavLink[])
+Header with logo centered on top and navigation links centered below. Uses EmailNavLink items.
+
+EmailHeaderSocial(logoSrc: string, logoAlt: string, logoHeight?: number, icons: EmailSocialIcon[])
+Header with logo on the left and social media icon links on the right. Uses EmailSocialIcon items.
+
+EmailNavLink(text: string, href: string)
+Navigation link item for email headers.
+
+EmailSocialIcon(src: string, alt: string, href: string)
+Social media icon link for email headers. src should be a square icon image URL.
+
+EmailFooterCentered(logoSrc: string, logoAlt: string, companyName: string, tagline?: string, address: string, contact?: string, icons?: EmailSocialIcon[])
+Centered footer with logo, company name, tagline, social icons, address, and contact info. Uses EmailSocialIcon items.
+
+EmailFooterTwoColumn(logoSrc: string, logoAlt: string, companyName: string, tagline?: string, address: string, contact?: string, icons?: EmailSocialIcon[])
+Two-column footer with logo and company info on the left, social icons and address on the right. Uses EmailSocialIcon items.
+
+EmailHeading(text: string, level?: number)
+Email heading (h1-h6). Use level 1 for main title, 2 for section headers.
+
+EmailText(text: string)
+Email text paragraph for body content.
+
+EmailButton(label: string, href: string, backgroundColor?: string)
+Email call-to-action button with link.
+
+EmailImage(src: string, alt: string, width?: number)
+Email image. Use real, publicly accessible URLs.
+
+EmailDivider()
+Horizontal divider line to separate email sections.
+
+EmailLink(text: string, href: string)
+Inline hyperlink in email content.
+
+EmailCodeBlock(code: string, language?: string)
+Syntax-highlighted code block for displaying code snippets in emails.
+
+EmailCodeInline(code: string)
+Inline code snippet for embedding code within text.
+
+EmailMarkdown(content: string)
+Renders markdown content as styled email HTML. Supports headings, bold, italic, links, lists, and code.
+
+EmailArticle(imageSrc: string, imageAlt: string, category?: string, title: string, description: string, buttonLabel: string, buttonHref: string, buttonColor?: string)
+Article block with hero image, optional category label, title, description, and CTA button. Great for blog posts and newsletter articles.
+
+EmailProductCard(imageSrc: string, imageAlt: string, category?: string, title: string, description: string, price: string, buttonLabel: string, buttonHref: string, buttonColor?: string)
+Product showcase card with hero image, optional category, title, description, price, and buy button.
+
+EmailFeatureItem(iconSrc: string, iconAlt: string, title: string, description: string)
+Single feature item with icon, title, and description. Used inside EmailFeatureGrid or EmailFeatureList.
+
+EmailFeatureGrid(title: string, description: string, items: EmailFeatureItem[])
+2x2 feature grid with header title, description, and four feature items each with icon, title, and description.
+
+EmailFeatureList(title: string, description: string, items: EmailFeatureItem[])
+Vertical feature list with header title, description, and feature items separated by dividers. Each item has an icon, title, and description.
+
+EmailStepItem(title: string, description: string)
+Single numbered step with title and description. Used inside EmailNumberedSteps.
+
+EmailNumberedSteps(title: string, description: string, steps: EmailStepItem[])
+Numbered steps list with header title, description, and sequential step items. Each step shows a numbered badge, title, and description.
+
+EmailCheckoutItem(imageSrc?: string, imageAlt?: string, name: string, quantity?: number, price: string)
+Single checkout/cart item with optional image, name, quantity, and price. Used inside EmailCheckoutTable.
+
+EmailCheckoutTable(title?: string, items: EmailCheckoutItem[], buttonLabel: string, buttonHref: string, buttonColor?: string)
+Checkout/cart table with product items (image, name, quantity, price) and a checkout button. Great for abandoned cart and order summary emails.
+
+EmailPricingFeature(text: string)
+Single pricing feature line item. Used inside EmailPricingCard.
+
+EmailPricingCard(badge?: string, price: string, period?: string, description: string, features: EmailPricingFeature[], buttonLabel: string, buttonHref: string, buttonColor?: string, note?: string, subNote?: string)
+Pricing card with badge, price, description, feature list, CTA button, and optional note. Great for upgrade and promotional emails.
+
+EmailTestimonial(quote: string, avatarSrc: string, avatarAlt: string, name: string, role: string)
+Testimonial quote with avatar, name, and role. Centered layout for social proof in emails.
+
+EmailSurveyRating(question: string, description?: string, buttonColor?: string)
+Rating survey section with a question and 1-5 numbered buttons. Great for feedback and NPS emails.
+
+EmailStatItem(value: string, label: string)
+Single stat with a value and label. Used inside EmailStats.
+
+EmailStats(items: EmailStatItem[])
+Horizontal stats row displaying key metrics. Each stat has a large value and a label below it.
+
+EmailImageGrid(title?: string, description?: string, images: EmailImage[])
+2x2 image grid layout with optional header title and description. Pass up to 4 EmailImage items. Great for product galleries and portfolios.
+
+EmailAvatar(src: string, alt: string, size?: number, rounded?: "full" | "md")
+Avatar image component. Supports circular (rounded='full') or rounded-square (rounded='md') shapes, and configurable size.
+
+EmailAvatarGroup(avatars: EmailAvatar[])
+Overlapping stacked avatar group. Pass EmailAvatar items to display them in a horizontal row with negative offset overlap.
+
+EmailAvatarWithText(avatarSrc: string, avatarAlt: string, name: string, role: string, href?: string)
+Avatar with name and role text beside it. Optionally wraps in a link. Great for author attribution or team member display.
+
+EmailListItem(title: string, description: string)
+Data-only list item with title and description. Used as a child inside EmailList.
+
+EmailList(title?: string, items: EmailListItem[])
+Numbered list with circular number badges and item title + description. Pass EmailListItem children. Great for feature lists, how-it-works sections, and top-N lists.
+
+EmailCustomerReview(title?: string, totalReviews: number, rating5: number, rating4: number, rating3: number, rating2: number, rating1: number, buttonLabel?: string, buttonHref?: string, buttonColor?: string)
+Customer review summary with star rating distribution bars showing percentages for each rating (1-5). Includes total review count and optional CTA button to write a review.
+
+EmailBentoItem(imageSrc: string, imageAlt: string, title: string, description: string)
+Data-only bento grid item with image, title, and description. Used as a child inside EmailBentoGrid.
+
+EmailBentoGrid(heroTitle: string, heroDescription: string, heroLinkText?: string, heroLinkHref?: string, heroImageSrc: string, heroImageAlt: string, items: EmailBentoItem[])
+Bento grid layout with a dark hero section (title, description, link, image) on top and a row of product cards below. Pass EmailBentoItem children for the bottom row. Great for marketing and product showcase emails.
