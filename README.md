@@ -3,7 +3,7 @@
 Interactive answers and designed email drafts in the existing Agent Zero chat. This community plugin uses the official OpenUI React renderer in a local sandbox.
 
 ![A generated weekly delivery chart in Agent Zero](docs/screenshots/chart.png)
-
+<img width="1752" height="963" alt="a0-openui_email" src="https://github.com/user-attachments/assets/435a22bf-f3c8-4911-b379-9981ccd9e31c" />
 **Gateway is optional.** The default uses Agent Zero's configured model and does not make a second model call just to render an answer. No OpenUI account is required. Your chosen model may have its own charges or subscription; a local model can be configured through Agent Zero, but local-model quality has not been benchmarked for this release.
 
 ## Included
